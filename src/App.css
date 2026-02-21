@@ -1,0 +1,32 @@
+.tilt-card {
+  position: relative;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(251, 146, 60, 0.35),
+    rgba(59, 130, 246, 0.25),
+    rgba(236, 72, 153, 0.25)
+  );
+  filter: blur(18px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 300ms ease;
+}
+
+.tilt-card:hover {
+  transform: perspective(1200px) rotateX(4deg) rotateY(-6deg) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.5);
+}
+
+.tilt-card:hover::after {
+  opacity: 1;
+}
