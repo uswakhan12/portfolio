@@ -2,6 +2,10 @@
 
 A professional portfolio website for AI research, projects, and experience. Built with React, Vite, Tailwind CSS, and Framer Motion.
 
+## Live Site
+
+- [https://uswa-portfolio-rouge.vercel.app/](https://uswa-portfolio-rouge.vercel.app/)
+
 ## Overview
 
 This portfolio includes:
