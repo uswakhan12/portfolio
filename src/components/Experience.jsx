@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion"
 
 function Experience() {
@@ -5,30 +6,39 @@ function Experience() {
     {
       title: "Backend Developer Intern",
       company: "BloodShare",
-      period: "Summer 2025",
-      duration: "3 months",
-      description: "Optimized backend APIs and improved system reliability for a blood donation management platform.",
+      period: "Sep 2025 - Nov 2025",
+      duration: "Islamabad, Pakistan",
+      description: "Strengthened API performance and service reliability for a production healthcare platform.",
       achievements: [
         "Optimized backend API performance to improve response time and system reliability",
         "Debugged and enhanced existing services for smoother data flow between frontend and backend systems"
       ],
-      color: "from-blue-500/20 to-blue-600/10",
-      borderColor: "border-blue-400/30",
-      icon: "⚙️"
+      icon: "Backend"
+    },
+    {
+      title: "Undergraduate Research Assistant (Computer Vision)",
+      company: "NUST SINES",
+      period: "Jan 2026 - Present",
+      duration: "Islamabad, Pakistan",
+      description: "Driving applied computer vision research on attention analysis and behavioral pattern modeling.",
+      achievements: [
+        "Engineered Attentio, an AI prototype for real-time student attention span analysis using YOLO and Deep Learning",
+        "Authored a primary research paper on behavioral pattern recognition submitted to WiDS PSU 2026",
+        "Awarded 3rd Position nationally in AI Project Display at AI, Cybersecurity, and Drone Swarm Gala"
+      ],
+      icon: "Research"
     },
     {
       title: "Machine Learning Intern",
       company: "Elevvo",
-      period: "Summer 2025",
-      duration: "1 month",
-      description: "Built predictive models and collaborative filtering systems for recommendation engine.",
+      period: "Sep 2025",
+      duration: "Remote",
+      description: "Built and evaluated predictive and recommender models for real-world ML tasks.",
       achievements: [
         "Developed predictive models including student score prediction and customer segmentation",
         "Engineered a collaborative filtering movie recommendation system and weather forecasting models"
       ],
-      color: "from-purple-500/20 to-purple-600/10",
-      borderColor: "border-purple-400/30",
-      icon: "🤖"
+      icon: "ML"
     }
   ]
 
@@ -53,24 +63,24 @@ function Experience() {
   }
 
   return (
-    <section id="experience" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="section-shell">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-4">
+          <h2 className="section-heading mb-4">
             Experience
           </h2>
-          <p className="text-lg text-gray-300">
-            Building scalable systems and intelligent models
+          <p className="section-subheading">
+            Professional internships and research impact
           </p>
         </motion.div>
 
         <motion.div
-          className="space-y-8"
+          className="space-y-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -80,34 +90,36 @@ function Experience() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`tilt-card bg-gradient-to-br ${exp.color} ${exp.borderColor} border rounded-2xl p-8 backdrop-blur-sm`}
+              className="card-surface"
             >
               <div className="flex items-start gap-4 mb-6">
-                <div className="text-4xl">{exp.icon}</div>
+                <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold uppercase tracking-widest text-slate-300">
+                  {exp.icon}
+                </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
                     <h3 className="text-2xl font-bold text-white">
                       {exp.title}
                     </h3>
-                    <span className="text-sm px-3 py-1 bg-white/10 rounded-full text-gray-200 font-medium w-fit">
+                    <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-slate-200">
                       {exp.duration}
                     </span>
                   </div>
-                  <p className="text-lg text-blue-300 font-semibold">
+                  <p className="text-lg font-semibold text-sky-300">
                     {exp.company}
                   </p>
-                  <p className="text-sm text-gray-400 mt-1">
+                  <p className="mt-1 text-sm text-slate-400">
                     {exp.period}
                   </p>
                 </div>
               </div>
 
-              <p className="text-gray-300 leading-relaxed mb-6 text-base">
+              <p className="mb-6 text-base leading-relaxed text-slate-300">
                 {exp.description}
               </p>
 
               <div>
-                <p className="text-sm uppercase tracking-widest text-gray-400 mb-3 font-semibold">
+                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-slate-400">
                   Key Achievements
                 </p>
                 <ul className="space-y-3">
@@ -117,9 +129,9 @@ function Experience() {
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.1, duration: 0.4 }}
-                      className="flex items-start gap-3 text-gray-300"
+                      className="flex items-start gap-3 text-slate-300"
                     >
-                      <span className="text-blue-400 font-bold mt-1 min-w-fit">
+                      <span className="mt-1 min-w-fit font-bold text-sky-400">
                         ✓
                       </span>
                       <span>{achievement}</span>

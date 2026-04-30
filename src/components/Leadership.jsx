@@ -1,30 +1,59 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion"
+
+const MegaphoneIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
+    <path strokeWidth="1.8" d="M4 13V9l11-4v12L4 13Z" />
+    <path strokeWidth="1.8" d="M15 9h2a3 3 0 0 1 0 6h-2M6 13l1.5 5h2L8 12" />
+  </svg>
+)
+
+const BriefcaseIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
+    <rect x="3" y="7" width="18" height="12" rx="2" strokeWidth="1.8" />
+    <path strokeWidth="1.8" d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18" />
+  </svg>
+)
+
+const HeartIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
+    <path strokeWidth="1.8" d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10Z" />
+  </svg>
+)
+
+const TargetIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
+    <circle cx="12" cy="12" r="8" strokeWidth="1.8" />
+    <circle cx="12" cy="12" r="4" strokeWidth="1.8" />
+    <circle cx="12" cy="12" r="1.3" strokeWidth="1.8" />
+  </svg>
+)
 
 function Leadership() {
   const roles = [
     {
-      icon: "👥",
-      title: "Director of Social Media & Marketing",
+      icon: <MegaphoneIcon />,
+      title: "Director SMM",
       organization: "GDG NUST",
-      description: "Leading digital presence and community engagement for Google Developer Group at NUST",
-      color: "from-blue-500/20 to-blue-600/10",
-      borderColor: "border-blue-400/30"
+      description: "Leading social media marketing strategies to drive engagement for technology events."
     },
     {
-      icon: "💼",
-      title: "Deputy Director, Human Resources",
+      icon: <BriefcaseIcon />,
+      title: "Deputy Director HR",
       organization: "Entrepreneur Club",
-      description: "Overseeing talent acquisition, team development, and organizational culture",
-      color: "from-green-500/20 to-green-600/10",
-      borderColor: "border-green-400/30"
+      description: "Managing recruitment and team coordination for campus initiatives."
     },
     {
-      icon: "❤️",
+      icon: <HeartIcon />,
       title: "Social Welfare Intern",
       organization: "Alkhidmat Foundation",
-      description: "Contributing to community development and social impact initiatives",
-      color: "from-pink-500/20 to-pink-600/10",
-      borderColor: "border-pink-400/30"
+      description: "Coordinated volunteers and supported community welfare initiatives."
+    },
+    {
+      icon: <TargetIcon />,
+      title: "Executive Member (SMM)",
+      organization: "NUST Archery Club & Excursion Club",
+      description: "Active contributor as social media executive for student engagement and outreach."
     }
   ]
 
@@ -49,24 +78,24 @@ function Leadership() {
   }
 
   return (
-    <section id="leadership" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="leadership" className="section-shell">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-4">
+          <h2 className="section-heading mb-4">
             Leadership & Social Impact
           </h2>
-          <p className="text-lg text-gray-300">
+          <p className="section-subheading">
             Driving community growth and making a difference
           </p>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-6"
+          className="grid gap-6 md:grid-cols-2"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -76,16 +105,16 @@ function Leadership() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`tilt-card bg-gradient-to-br ${role.color} ${role.borderColor} border rounded-2xl p-6 backdrop-blur-sm`}
+              className="card-surface"
             >
-              <div className="text-4xl mb-4">{role.icon}</div>
+              <div className="mb-4 text-sky-300">{role.icon}</div>
               <h3 className="text-xl font-bold text-white mb-2">
                 {role.title}
               </h3>
-              <p className="text-blue-300 font-semibold mb-3">
+              <p className="mb-3 font-semibold text-sky-300">
                 {role.organization}
               </p>
-              <p className="text-gray-300 leading-relaxed text-sm">
+              <p className="text-sm leading-relaxed text-slate-300">
                 {role.description}
               </p>
             </motion.div>

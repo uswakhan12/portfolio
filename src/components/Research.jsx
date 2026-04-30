@@ -1,6 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion"
 
+const FlaskIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current" aria-hidden="true">
+    <path strokeWidth="1.8" d="M10 3h4M12 3v5l5 8a3 3 0 0 1-2.6 4H9.6A3 3 0 0 1 7 16l5-8V3Z" />
+    <path strokeWidth="1.8" d="M9 14h6" />
+  </svg>
+)
+
+const BookIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current" aria-hidden="true">
+    <path strokeWidth="1.8" d="M4 5a2 2 0 0 1 2-2h6v17H6a2 2 0 0 0-2 2V5Zm16 0a2 2 0 0 0-2-2h-6v17h6a2 2 0 0 1 2 2V5Z" />
+  </svg>
+)
+
 function Research() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -23,19 +36,19 @@ function Research() {
   }
 
   return (
-    <section id="research" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="research" className="section-shell">
+      <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-4">
+          <h2 className="section-heading mb-4">
             Research
           </h2>
-          <p className="text-lg text-gray-300">
-            Advancing AI in resource-constrained environments
+          <p className="section-subheading">
+            Deep learning research and publication pipeline
           </p>
         </motion.div>
 
@@ -49,27 +62,27 @@ function Research() {
           {/* Research Project Card */}
           <motion.div
             variants={itemVariants}
-            className="tilt-card bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 border border-cyan-400/30 p-8 rounded-2xl backdrop-blur-sm"
+            className="card-surface"
           >
             <div className="flex items-start gap-4 mb-4">
-              <span className="text-4xl">🔬</span>
+              <span className="text-cyan-300"><FlaskIcon /></span>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Optimizing Student Engagement Detection
+                  Attentio - Real-Time Attention Analysis
                 </h3>
-                <p className="text-cyan-300 font-semibold">
-                  WiDS PSU 2026 Conference (Accepted)
+                <p className="font-semibold text-cyan-300">
+                  NUST SINES | WiDS PSU 2026 Submission
                 </p>
               </div>
             </div>
 
-            <p className="text-gray-300 leading-relaxed mb-4">
-              Developed a benchmark comparing modern architectures for real-time student engagement detection in classrooms with limited computational resources.
+            <p className="mb-4 leading-relaxed text-slate-300">
+              Conducting research on student attention span analysis using YOLO-based computer vision and deep learning methods for real classroom environments.
             </p>
 
-            <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-              <p className="text-gray-300 text-sm">
-                Designed an optimized YOLO-based attention and posture recognition framework, achieving high accuracy while reducing processing latency for low-power devices.
+            <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+              <p className="text-sm text-slate-300">
+                Lead author on a behavioral pattern recognition paper submitted to WiDS PSU 2026 and awarded 3rd Position at the National AI, Cybersecurity, and Drone Swarm Gala.
               </p>
             </div>
           </motion.div>
@@ -77,26 +90,26 @@ function Research() {
           {/* Publication Card */}
           <motion.div
             variants={itemVariants}
-            className="tilt-card bg-gradient-to-br from-purple-500/20 to-purple-600/10 border border-purple-400/30 p-8 rounded-2xl backdrop-blur-sm"
+            className="card-surface"
           >
             <div className="flex items-start gap-4">
-              <span className="text-4xl">📚</span>
+              <span className="text-purple-300"><BookIcon /></span>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Lead Author Publication
+                  Publication Focus
                 </h3>
-                <p className="text-purple-300 font-semibold mb-3">
-                  WiDS PSU 2026 • Submission ID: 45
+                <p className="mb-3 font-semibold text-purple-300">
+                  Deep Learning-Based Attention Span Analysis
                 </p>
-                <p className="text-gray-300 leading-relaxed mb-4">
-                  Comprehensive benchmark of modern architectures for resource-constrained engagement detection.
+                <p className="mb-4 leading-relaxed text-slate-300">
+                  Research explores behavior-aware attention modeling and scalable inference for practical deployment in academic settings.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-purple-500/30 rounded-full text-purple-200 text-sm">
-                    IEEE Xplore Eligible
+                  <span className="rounded-full bg-purple-500/30 px-3 py-1 text-sm text-purple-200">
+                    Conference Submission
                   </span>
-                  <span className="px-3 py-1 bg-purple-500/30 rounded-full text-purple-200 text-sm">
-                    Peer Reviewed
+                  <span className="rounded-full bg-purple-500/30 px-3 py-1 text-sm text-purple-200">
+                    Behavioral Pattern Recognition
                   </span>
                 </div>
               </div>

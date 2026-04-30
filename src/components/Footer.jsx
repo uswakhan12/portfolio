@@ -1,10 +1,10 @@
 function Footer() {
   return (
-    <footer id="contact" className="py-10 text-center bg-gray-950">
-      <p className="text-gray-500">
-        © 2026 Uswa Khan | AI Researcher & Developer
+    <footer className="border-t border-white/10 bg-slate-950 py-10 text-center">
+      <p className="text-slate-400">
+        © 2026 Uswa Khan | AI Researcher & Full-Stack Developer
       </p>
-      <p className="text-gray-400 mt-2">
+      <p className="mt-2 text-slate-500">
         uswaakhan03@gmail.com
       </p>
     </footer>
