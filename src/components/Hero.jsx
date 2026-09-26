@@ -16,52 +16,66 @@ const LinkedInIcon = () => (
 const MailIcon = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" aria-hidden="true">
     <rect x="3" y="5" width="18" height="14" rx="2" strokeWidth="1.8" />
-    <path strokeWidth="1.8" d="m4 7 8 6 8-6" />
+    <path strokeWidth="1.8" strokeLinecap="round" d="m4 7 8 6 8-6" />
   </svg>
 )
 
 const PhoneIcon = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" aria-hidden="true">
-    <path strokeWidth="1.8" d="M6.5 3h3l1.3 4-1.8 1.8a14 14 0 0 0 6 6l1.8-1.8 4 1.3v3A1.7 1.7 0 0 1 19.1 19 16.1 16.1 0 0 1 5 4.9 1.7 1.7 0 0 1 6.5 3Z" />
+    <path strokeWidth="1.8" strokeLinecap="round" d="M6.5 3h3l1.3 4-1.8 1.8a14 14 0 0 0 6 6l1.8-1.8 4 1.3v3A1.7 1.7 0 0 1 19.1 19 16.1 16.1 0 0 1 5 4.9 1.7 1.7 0 0 1 6.5 3Z" />
   </svg>
 )
 
 function Hero() {
   return (
-    <section className="section-shell relative pt-36">
+    <section id="top" className="section-shell relative pt-32 md:pt-44">
+      <p className="end-hint">note at the end</p>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="card-surface mx-auto max-w-4xl text-center"
+          className="sketch-card sketch-card-flat taped mx-auto max-w-4xl px-6 py-10 text-center md:px-10"
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-            Computer Science Undergraduate at NUST
+          <p className="sketch-kicker mb-2">
+            Final Year B.S. Computer Science · NUST SEECS
           </p>
-          <h1 className="mb-4 text-5xl font-extrabold text-white md:text-7xl">
-            Uswa Khan
+          <h1 className="font-display text-7xl font-bold leading-none text-ink md:text-8xl">
+            <button
+              type="button"
+              className="name-doodle"
+              onClick={(event) => {
+                window.dispatchEvent(new CustomEvent("sketch-burst", {
+                  detail: { x: event.clientX, y: event.clientY }
+                }))
+              }}
+            >
+              Uswa Khan
+            </button>
           </h1>
+          <span className="squiggle" aria-hidden="true" />
+          <p className="mt-1 font-display text-2xl text-blush-600">tap the name</p>
 
-          <p className="mb-6 text-lg tracking-wide text-sky-300 md:text-2xl">
-            Artificial Intelligence • Deep Learning • Computer Vision
+          <p className="mb-2 mt-5 font-display text-3xl text-blush-700 md:text-4xl">
+            AI · Computer Vision · ML & Deep Learning
+          </p>
+          <p className="mb-6 text-inksoft">Islamabad, Pakistan</p>
+
+          <p className="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-ink md:text-lg">
+            AI and Computer Vision Engineer with 2+ years of experience building ML systems
+            across deep learning, computer vision. I work on YOLO-based systems, LLM pipelines, synthetic data generation, and intelligent systems.
+           
           </p>
 
-          <p className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
-            Computer Science Undergraduate at NUST with hands-on experience in AI research,
-            backend engineering, and full-stack product development. I build deployable machine
-            learning systems that translate complex research into measurable outcomes.
-          </p>
-
-          <div className="mx-auto mb-10 grid max-w-3xl grid-cols-1 gap-3 text-sm sm:grid-cols-3">
-            <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-3">
-              3rd place globally (5,500+ participants)
+          <div className="mx-auto mb-8 grid max-w-3xl grid-cols-1 gap-3 text-sm sm:grid-cols-3">
+            <div className="sketch-card sketch-card-flat px-4 py-3">
+              3rd place globally · Hack Nation 2026
             </div>
-            <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-3">
-              National AI gala award-winning project
+            <div className="sketch-card sketch-card-flat px-4 py-3">
+              Top 0.05% of 5,500+ teams
             </div>
-            <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-3">
-              Ongoing computer vision research at NUST
+            <div className="sketch-card sketch-card-flat px-4 py-3">
+              3rd place nationally · AI Gala 2026
             </div>
           </div>
 
@@ -72,17 +86,17 @@ function Hero() {
               rel="noopener noreferrer"
               title="GitHub"
               aria-label="GitHub profile"
-              className="rounded-xl bg-white p-3 text-slate-900 transition hover:bg-slate-100"
+              className="sketch-icon-btn"
             >
               <GitHubIcon />
             </a>
             <a
-              href="https://linkedin.com/in/uswa-khan"
+              href="https://www.linkedin.com/in/uswa-khan-070b85260/"
               target="_blank"
               rel="noopener noreferrer"
               title="LinkedIn"
               aria-label="LinkedIn profile"
-              className="rounded-xl border border-white/30 p-3 text-white transition hover:bg-white/10"
+              className="sketch-icon-btn"
             >
               <LinkedInIcon />
             </a>
@@ -90,7 +104,7 @@ function Hero() {
               href="mailto:uswaakhan03@gmail.com"
               title="Email"
               aria-label="Send email"
-              className="rounded-xl border border-sky-400/40 bg-sky-500/15 p-3 text-sky-200 transition hover:bg-sky-500/25"
+              className="sketch-icon-btn sketch-btn-fill"
             >
               <MailIcon />
             </a>
@@ -98,7 +112,7 @@ function Hero() {
               href="tel:+923141709256"
               title="Phone"
               aria-label="Call phone number"
-              className="rounded-xl border border-emerald-400/40 bg-emerald-500/15 p-3 text-emerald-200 transition hover:bg-emerald-500/25"
+              className="sketch-icon-btn"
             >
               <PhoneIcon />
             </a>

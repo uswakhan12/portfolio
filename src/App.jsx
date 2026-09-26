@@ -9,13 +9,17 @@ import Leadership from "./components/Leadership"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import Research from "./components/Research"
+import Surprises from "./components/Surprises"
+import "./App.css"
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-slate-950 text-slate-100 overflow-hidden">
-      <div className="pointer-events-none absolute -top-40 left-[-10%] h-96 w-96 rounded-full bg-orange-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute top-32 right-[-8%] h-[28rem] w-[28rem] rounded-full bg-pink-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
+    <div className="relative min-h-screen overflow-x-hidden text-ink">
+      <div className="notebook-margin" aria-hidden="true" />
+      <div className="pointer-events-none absolute -top-24 left-[-8%] h-72 w-72 rounded-full bg-blush-300/50 blur-3xl" />
+      <div className="pointer-events-none absolute right-[-6%] top-40 h-80 w-80 rounded-full bg-blush-200/80 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-24 left-1/3 h-64 w-64 rounded-full bg-blush-400/30 blur-3xl" />
+      <Surprises />
       <Navbar />
       <Hero />
       <About />

@@ -3,73 +3,52 @@ import { motion } from "framer-motion"
 
 const TrophyIcon = () => (
   <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
-    <path strokeWidth="1.8" d="M7 4h10v2a5 5 0 0 1-5 5 5 5 0 0 1-5-5V4Z" />
-    <path strokeWidth="1.8" d="M9 20h6m-5-3h4m-2-6v6M17 6h2a2 2 0 0 1-2 2M7 6H5a2 2 0 0 0 2 2" />
-  </svg>
-)
-
-const DocumentIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
-    <path strokeWidth="1.8" d="M7 3h7l4 4v14H7z" />
-    <path strokeWidth="1.8" d="M14 3v4h4M9 12h6M9 16h6" />
+    <path strokeWidth="1.8" strokeLinecap="round" d="M7 4h10v2a5 5 0 0 1-5 5 5 5 0 0 1-5-5V4Z" />
+    <path strokeWidth="1.8" strokeLinecap="round" d="M9 20h6m-5-3h4m-2-6v6M17 6h2a2 2 0 0 1-2 2M7 6H5a2 2 0 0 0 2 2" />
   </svg>
 )
 
 const MedalIcon = () => (
   <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
-    <path strokeWidth="1.8" d="M8 3h3l1 3 1-3h3l-3 6h-2zM12 10a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />
-    <path strokeWidth="1.8" d="m10.5 15 1.5-1 1.5 1-.5-1.8 1.4-1.2h-1.8L12 10.4 11.4 12H9.6l1.4 1.2z" />
+    <path strokeWidth="1.8" strokeLinejoin="round" d="M8 3h3l1 3 1-3h3l-3 6h-2z" />
+    <circle cx="12" cy="15" r="5" strokeWidth="1.8" />
   </svg>
 )
 
+const FlagIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" aria-hidden="true">
+    <path strokeWidth="1.8" strokeLinecap="round" d="M6 21V4m0 0h11l-2 4 2 4H6" />
+  </svg>
+)
+
+const achievements = [
+  {
+    icon: <TrophyIcon />,
+    title: "3rd Place Globally",
+    description: "Fulcrum Science Challenge, Hack-Nation 2026",
+    detail: "LabMind AI ranked 3rd of 5,500+ teams from 65+ countries (top 0.05%). Recognized by Jack Dorsey for innovation and impact."
+  },
+  {
+    icon: <TrophyIcon />,
+    title: "3rd Position Nationally",
+    description: "AI, Cybersecurity & Drone Swarm Gala 2026",
+    detail: "Recognized for Attentio at the national AI project display."
+  },
+  {
+    icon: <MedalIcon />,
+    title: "Best Learner Award",
+    description: "Agentic AI Workshop, 2025",
+    detail: "Recognized for excellence in applied agentic AI learning."
+  },
+  {
+    icon: <FlagIcon />,
+    title: "Hackathon Participation",
+    description: "Center of Excellence, Vyrothon, Hack-Nation",
+    detail: "Competed in the AI Hackathon by Center of Excellence, Vyrothon, and Hack-Nation Global AI Hackathon (4th and 5th editions)."
+  }
+]
+
 function Achievements() {
-  const achievements = [
-    {
-      icon: <TrophyIcon />,
-      title: "3rd Place Globally",
-      description: "Fulcrum Science Challenge, Hack-Nation 2026",
-      detail: "LabMind AI ranked 3rd out of 5,500+ applicants"
-    },
-    {
-      icon: <TrophyIcon />,
-      title: "3rd Position Nationally",
-      description: "AI, Cybersecurity & Drone Swarm Gala",
-      detail: "Attentio recognized in AI Project Display"
-    },
-    {
-      icon: <DocumentIcon />,
-      title: "Research Submission",
-      description: "WiDS PSU 2026",
-      detail: "Deep Learning-Based Attention Span Analysis"
-    },
-    {
-      icon: <MedalIcon />,
-      title: "Best Learner Award",
-      description: "Agentic AI Workshop (2025)",
-      detail: "Recognized for excellence in applied agentic AI learning"
-    }
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  }
-
   return (
     <section id="achievements" className="section-shell">
       <div className="section-container">
@@ -77,42 +56,33 @@ function Achievements() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 text-center"
         >
-          <h2 className="section-heading mb-4">
-            Achievements
-          </h2>
+          <h2 className="section-heading">Achievements</h2>
+          <span className="squiggle" aria-hidden="true" />
           <p className="section-subheading">
-            Recognition for excellence in research and innovation
+            Global and national recognition for research and applied AI
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid gap-6 md:grid-cols-2"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="grid gap-6 md:grid-cols-2">
           {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="card-surface text-center"
+            <motion.article
+              key={achievement.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="sketch-card p-6 text-center"
             >
-              <div className="mb-4 flex justify-center text-sky-300">{achievement.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <div className="mb-3 flex justify-center text-blush-700">{achievement.icon}</div>
+              <h3 className="font-display text-4xl font-bold leading-none text-ink">
                 {achievement.title}
               </h3>
-              <p className="mb-2 font-semibold text-sky-300">
-                {achievement.description}
-              </p>
-              <p className="text-sm leading-relaxed text-slate-400">
-                {achievement.detail}
-              </p>
-            </motion.div>
+              <p className="mt-2 font-bold text-blush-700">{achievement.description}</p>
+              <p className="mt-2 leading-relaxed text-inksoft">{achievement.detail}</p>
+            </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

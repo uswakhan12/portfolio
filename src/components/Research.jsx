@@ -3,38 +3,12 @@ import { motion } from "framer-motion"
 
 const FlaskIcon = () => (
   <svg viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current" aria-hidden="true">
-    <path strokeWidth="1.8" d="M10 3h4M12 3v5l5 8a3 3 0 0 1-2.6 4H9.6A3 3 0 0 1 7 16l5-8V3Z" />
-    <path strokeWidth="1.8" d="M9 14h6" />
-  </svg>
-)
-
-const BookIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current" aria-hidden="true">
-    <path strokeWidth="1.8" d="M4 5a2 2 0 0 1 2-2h6v17H6a2 2 0 0 0-2 2V5Zm16 0a2 2 0 0 0-2-2h-6v17h6a2 2 0 0 1 2 2V5Z" />
+    <path strokeWidth="1.8" strokeLinecap="round" d="M10 3h4M12 3v5l5 8a3 3 0 0 1-2.6 4H9.6A3 3 0 0 1 7 16l5-8V3Z" />
+    <path strokeWidth="1.8" strokeLinecap="round" d="M9 14h6" />
   </svg>
 )
 
 function Research() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  }
-
   return (
     <section id="research" className="section-shell">
       <div className="section-container">
@@ -42,80 +16,46 @@ function Research() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 text-center"
         >
-          <h2 className="section-heading mb-4">
-            Research
-          </h2>
+          <h2 className="section-heading">Research</h2>
+          <span className="squiggle" aria-hidden="true" />
           <p className="section-subheading">
-            Deep learning research and publication pipeline
+            Applied computer vision research on attention and behavioral pattern recognition
           </p>
         </motion.div>
 
-        <motion.div
-          className="space-y-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {/* Research Project Card */}
+        <div className="space-y-6">
           <motion.div
-            variants={itemVariants}
-            className="card-surface"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="sketch-card p-6 md:p-8"
           >
-            <div className="flex items-start gap-4 mb-4">
-              <span className="text-cyan-300"><FlaskIcon /></span>
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-2">
+            <div className="mb-4 flex items-start gap-4">
+              <span className="text-blush-700"><FlaskIcon /></span>
+              <div>
+                <h3 className="font-display text-4xl font-bold leading-none text-ink">
                   Attentio - Real-Time Attention Analysis
                 </h3>
-                <p className="font-semibold text-cyan-300">
-                  NUST SINES | WiDS PSU 2026 Submission
+                <p className="mt-2 font-bold text-blush-700">
+                  NUST SINES · Undergraduate Research Assistant, Oct 2025 – Feb 2026
                 </p>
               </div>
             </div>
-
-            <p className="mb-4 leading-relaxed text-slate-300">
-              Conducting research on student attention span analysis using YOLO-based computer vision and deep learning methods for real classroom environments.
+            <p className="leading-relaxed text-ink">
+              Engineered Attentio, a real-time AI prototype for student attention-span analysis using
+              YOLOv8 and deep learning. The system runs live inference on video streams to support
+              classroom behavioral analytics.
             </p>
-
-            <div className="rounded-lg border border-white/10 bg-white/5 p-4">
-              <p className="text-sm text-slate-300">
-                Lead author on a behavioral pattern recognition paper submitted to WiDS PSU 2026 and awarded 3rd Position at the National AI, Cybersecurity, and Drone Swarm Gala.
-              </p>
-            </div>
+            <ul className="mt-4 space-y-2 text-ink">
+              <li className="flex gap-2">
+                <span className="font-bold text-blush-700">✓</span>
+                Designed experiment pipelines, annotated datasets, and validated outputs against ground-truth behavioral benchmarks with faculty researcher.
+              </li>
+            </ul>
           </motion.div>
-
-          {/* Publication Card */}
-          <motion.div
-            variants={itemVariants}
-            className="card-surface"
-          >
-            <div className="flex items-start gap-4">
-              <span className="text-purple-300"><BookIcon /></span>
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Publication Focus
-                </h3>
-                <p className="mb-3 font-semibold text-purple-300">
-                  Deep Learning-Based Attention Span Analysis
-                </p>
-                <p className="mb-4 leading-relaxed text-slate-300">
-                  Research explores behavior-aware attention modeling and scalable inference for practical deployment in academic settings.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="rounded-full bg-purple-500/30 px-3 py-1 text-sm text-purple-200">
-                    Conference Submission
-                  </span>
-                  <span className="rounded-full bg-purple-500/30 px-3 py-1 text-sm text-purple-200">
-                    Behavioral Pattern Recognition
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

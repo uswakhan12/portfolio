@@ -113,5 +113,5 @@ You can deploy the built `dist/` folder on:
 
 - Email: [uswaakhan03@gmail.com](mailto:uswaakhan03@gmail.com)
 - GitHub: [github.com/uswakhan12](https://github.com/uswakhan12)
-- LinkedIn: [linkedin.com/in/uswa-khan](https://linkedin.com/in/uswa-khan)
+- LinkedIn: [linkedin.com/in/uswa-khan-070b85260](https://www.linkedin.com/in/uswa-khan-070b85260/)
 

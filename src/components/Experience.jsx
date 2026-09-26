@@ -1,67 +1,62 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion"
 
+const experiences = [
+  {
+    title: "Software Engineer Intern",
+    company: "Chore Robotics",
+    period: "Jul 2026 – Present",
+    location: "Irvine, California · Remote",
+    label: "Robotics",
+    summary: "Synthetic data and perception datasets for robotics and computer vision.",
+    achievements: [
+      "Developed synthetic-data generation workflows using Blender and BlenderProc.",
+      "Created and organized synthetic datasets for robotic perception, including object-focused scenes and attachment-specific data.",
+      "Benchmarked YOLO models for a specific robotics use case."
+    ]
+  },
+  {
+    title: "Edge AI & Computer Vision Intern",
+    company: "Plateau Dynamics",
+    period: "Jun 2026 – Aug 2026",
+    location: "NSTP, Islamabad · Hybrid",
+    label: "Edge AI",
+    summary: "End-to-end edge vision that turns camera detections into autonomous steering and interception commands.",
+    achievements: [
+      "Built a computer vision pipeline translating raw camera detections into autonomous steering and interception commands.",
+      "Benchmarked object tracking algorithms to keep target lock and ID consistency during high-speed, evasive maneuvers.",
+      "Implemented aerospace interception guidance laws and trajectory prediction for collision paths and time-to-impact.",
+      "Optimized the stack for real-time video, resolving memory and performance bottlenecks for live multi-target tracking on edge hardware."
+    ]
+  },
+  {
+    title: "Undergraduate Research Assistant (Computer Vision)",
+    company: "NUST SINES",
+    period: "Oct 2025 – Feb 2026",
+    location: "Islamabad, Pakistan",
+    label: "Research",
+    summary: "Attention Analysis ",
+    achievements: [
+      "Engineered Attentio, a prototype for student attention-span analysis using YOLOv8, with inference on video streams.",
+      "Earned 3rd position nationally at the AI, Cybersecurity, and Drone Swarm Gala.",
+      "Collaborated with faculty to design experiment pipelines, annotate datasets, and validate model outputs against behavioral benchmarks."
+    ]
+  },
+  {
+    title: "Backend Developer Intern",
+    company: "BloodShare",
+    period: "Sep 2025 – Nov 2025",
+    location: "Islamabad, Pakistan",
+    label: "Backend",
+    summary: "Production API performance and reliability for user-facing workflows.",
+    achievements: [
+      "Optimized backend API pathways, improving response-time consistency and system reliability.",
+      "Diagnosed service-level bottlenecks and reduced latency on critical user-facing endpoints."
+    ]
+  }
+]
+
 function Experience() {
-  const experiences = [
-    {
-      title: "Backend Developer Intern",
-      company: "BloodShare",
-      period: "Sep 2025 - Nov 2025",
-      duration: "Islamabad, Pakistan",
-      description: "Strengthened API performance and service reliability for a production healthcare platform.",
-      achievements: [
-        "Optimized backend API performance to improve response time and system reliability",
-        "Debugged and enhanced existing services for smoother data flow between frontend and backend systems"
-      ],
-      icon: "Backend"
-    },
-    {
-      title: "Undergraduate Research Assistant (Computer Vision)",
-      company: "NUST SINES",
-      period: "Jan 2026 - Present",
-      duration: "Islamabad, Pakistan",
-      description: "Driving applied computer vision research on attention analysis and behavioral pattern modeling.",
-      achievements: [
-        "Engineered Attentio, an AI prototype for real-time student attention span analysis using YOLO and Deep Learning",
-        "Authored a primary research paper on behavioral pattern recognition submitted to WiDS PSU 2026",
-        "Awarded 3rd Position nationally in AI Project Display at AI, Cybersecurity, and Drone Swarm Gala"
-      ],
-      icon: "Research"
-    },
-    {
-      title: "Machine Learning Intern",
-      company: "Elevvo",
-      period: "Sep 2025",
-      duration: "Remote",
-      description: "Built and evaluated predictive and recommender models for real-world ML tasks.",
-      achievements: [
-        "Developed predictive models including student score prediction and customer segmentation",
-        "Engineered a collaborative filtering movie recommendation system and weather forecasting models"
-      ],
-      icon: "ML"
-    }
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  }
-
   return (
     <section id="experience" className="section-shell">
       <div className="section-container">
@@ -69,79 +64,49 @@ function Experience() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12 text-center"
         >
-          <h2 className="section-heading mb-4">
-            Experience
-          </h2>
+          <h2 className="section-heading">Experience</h2>
+          <span className="squiggle" aria-hidden="true" />
           <p className="section-subheading">
-            Professional internships and research impact
+            Internships in robotics, edge AI, computer vision research, and backend systems
           </p>
         </motion.div>
 
-        <motion.div
-          className="space-y-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="space-y-6">
           {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="card-surface"
+            <motion.article
+              key={exp.company}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="sketch-card p-6 md:p-8"
             >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold uppercase tracking-widest text-slate-300">
-                  {exp.icon}
+              <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <span className="sketch-pill">{exp.label}</span>
+                  <h3 className="mt-2 font-display text-4xl font-bold leading-none text-ink">
+                    {exp.title}
+                  </h3>
+                  <p className="mt-1 text-lg font-bold text-blush-700">{exp.company}</p>
                 </div>
-                <div className="flex-1">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-                    <h3 className="text-2xl font-bold text-white">
-                      {exp.title}
-                    </h3>
-                    <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-slate-200">
-                      {exp.duration}
-                    </span>
-                  </div>
-                  <p className="text-lg font-semibold text-sky-300">
-                    {exp.company}
-                  </p>
-                  <p className="mt-1 text-sm text-slate-400">
-                    {exp.period}
-                  </p>
+                <div className="text-left md:text-right">
+                  <p className="font-bold text-ink">{exp.period}</p>
+                  <p className="text-inksoft">{exp.location}</p>
                 </div>
               </div>
-
-              <p className="mb-6 text-base leading-relaxed text-slate-300">
-                {exp.description}
-              </p>
-
-              <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-slate-400">
-                  Key Achievements
-                </p>
-                <ul className="space-y-3">
-                  {exp.achievements.map((achievement, idx) => (
-                    <motion.li
-                      key={idx}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1, duration: 0.4 }}
-                      className="flex items-start gap-3 text-slate-300"
-                    >
-                      <span className="mt-1 min-w-fit font-bold text-sky-400">
-                        ✓
-                      </span>
-                      <span>{achievement}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+              <p className="mb-4 leading-relaxed text-ink">{exp.summary}</p>
+              <ul className="space-y-2">
+                {exp.achievements.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-ink">
+                    <span className="mt-0.5 font-bold text-blush-700">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
